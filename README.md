@@ -1,8 +1,10 @@
+<a href="https://codeclimate.com/github/SAMCRODE/news-app/maintainability"><img src="https://api.codeclimate.com/v1/badges/c96868ec453131080e3b/maintainability" /></a>
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
-First, run the development server:
+First, inside `samcrode-news/` folder, run the development server:
 
 ```bash
 npm run dev
