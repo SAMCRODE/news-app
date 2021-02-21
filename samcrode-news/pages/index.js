@@ -2,16 +2,24 @@
 /* eslint-disable react/jsx-filename-extension */
 import Head from 'next/head';
 import HotNews from '../components/news/hot';
-import styles from '../styles/Home.module.css';
+import LastestNews from '../components/news/lastest';
+import styles from '../styles/Home.module.scss';
 
 export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>SAMCRODE</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <HotNews />
+      <div className={styles.content}>
+        <div className={styles.contentLeft}>
+          <HotNews />
+        </div>
+        <div className={styles.contentRight}>
+          <LastestNews />
+        </div>
+      </div>
     </div>
   );
 }

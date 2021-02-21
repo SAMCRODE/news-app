@@ -7,7 +7,7 @@ const Card = ({
 }) => (
   <div
     className={styles.container}
-    style={{ margin, backgroundImage: `url(${image})` }}
+    style={{ margin, backgroundImage: `url(${image})`, borderColor: backgroundColor }}
   >
     <div
       className={styles.category}

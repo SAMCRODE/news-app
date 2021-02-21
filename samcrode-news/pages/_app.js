@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable react/jsx-props-no-spreading */
 import Layout from '../components/common/Layout';
-import '../styles/globals.css';
+import '../styles/globals.scss';
 
 // eslint-disable-next-line react/prop-types
 function MyApp({ Component, pageProps }) {

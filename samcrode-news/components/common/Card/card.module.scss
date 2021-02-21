@@ -8,7 +8,8 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-
+    border: 5px solid;
+    
     .category {
         align-self: flex-start;
         background-color: black;
@@ -24,7 +25,9 @@
         width: 100%;
         color: white;
         text-align: center;
-        padding: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
         height: 50px;
+        font-size: 20px;
     }
 }

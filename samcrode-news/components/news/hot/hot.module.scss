@@ -1,23 +1,69 @@
 .container {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     width: 100%;
 
     .cardscontainer {
         width: 100%;
         display: flex;
         justify-content: center;
+        flex-wrap: wrap-reverse;
 
         .cardleft {
-            width: 300px;
+            width: 45%;
             height: 340px;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
+            flex-wrap: wrap;
+
+            @media (max-width: 740px) {
+                flex: 0 0 100%;
+                margin-top: 10px;
+            }
+
+            .firstCard {
+                flex: 0 0 48%;
+            }
+            .secondCard {
+                flex: 0 0 48%;
+            }
         }
 
         .cardright {
             height: 340px;
-            width: 400px;
+            width: 50%;
+            margin-left: 10px;
+            @media (max-width: 741px) {
+                flex: 0 0 100%;
+                width: 100% !important;
+                margin-left: 0px;
+            }
+        }
+
+        .newsBellow {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: row;
+            width: 95% !important;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+
+            .newsBellowItem {
+                flex: 0 0 32.00%;
+                height: 200px;
+                &:nth-child(1) {
+                    margin-right: 10px;
+                }
+                &:nth-child(2) {
+                    margin-right: 10px;
+                }
+                @media (max-width: 741px) {
+                    flex: 0 0 100% !important;
+                    margin-top: 10px;
+                }
+            }
         }
     }
 }
