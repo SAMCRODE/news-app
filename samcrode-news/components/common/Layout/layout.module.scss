@@ -1,0 +1,31 @@
+@import '../../../styles/common.scss';
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.navcontainer {
+    background-color: $primary_color_dark;
+    padding-top: 0;
+    margin-top: 0;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+
+    .innerContainer {
+        width: 80%;
+        color: wheat;
+    }
+}
+
+.fcontainer {
+    background-color: $primary_color_dark;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: wheat;
+    font-size: 14px;
+}
