@@ -1,0 +1,13 @@
+.logo {
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    color: wheat;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+
+    img {
+        width: 100px !important;
+        height: 100px !important;
+    }
+}
