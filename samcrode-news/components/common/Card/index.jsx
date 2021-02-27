@@ -3,11 +3,14 @@ import React from 'react';
 import styles from './card.module.scss';
 
 const Card = ({
-  margin, image, category, title, backgroundColor,
+  margin, image, category, title, backgroundColor, onClick
 }) => (
   <div
-    className={styles.container}
+    onClick={onClick.bind(this)}
+    role="link"
     style={{ margin, backgroundImage: `url(${image})`, borderColor: backgroundColor }}
+    className={styles.container}
+    aria-hidden="true"
   >
     <div
       className={styles.category}

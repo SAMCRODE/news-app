@@ -1,4 +1,5 @@
 .container {
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -9,6 +10,10 @@
     background-repeat: no-repeat;
     background-position: center;
     border: 5px solid;
+
+    &:hover {
+        transform: scale(1.03, 1.03);
+    }
     
     .category {
         align-self: flex-start;
