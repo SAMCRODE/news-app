@@ -1,0 +1,40 @@
+@import '../../../../styles/common.scss';
+
+.metaSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .title {
+        color: white !important;
+        margin-bottom: 0px;
+        font-size: 40px;
+    }
+    .description {
+        color: white;
+        margin-top: 1px;
+        font-weight: 100;
+    }
+    .authorSection {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .authorPhoto {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            border-radius: 25px;
+            background-image: url('https://pm1.narvii.com/7015/5e90ef3331227f81b45d4e94423fe5a536c3b979r1-480-481v2_hq.jpg');
+            background-size: cover;
+        }
+        .nameAndData {
+            display: flex;
+            flex-direction: column;
+            color: white;
+            
+            .data {
+                font-size: 13px;
+            }
+        }
+    }
+}

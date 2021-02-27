@@ -3,7 +3,7 @@ import ItemRow from './ItemRow';
 import styles from './lastest.module.scss';
 
 const LastestNews = () => (
-  <div className={styles.container}>
+  <div className={styles.containerL}>
     <h4>Últimas Notícias</h4>
     <ItemRow
       number="01"

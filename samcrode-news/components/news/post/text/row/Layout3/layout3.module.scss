@@ -1,0 +1,41 @@
+.contentType1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 10px;
+
+    .firstLetter {
+        font-size: 80px;
+    }
+    
+    p {
+        align-self: start;
+    }
+
+    .textCon {
+        flex: 0 0 100%;
+    }
+    .imageCon {
+        flex: 0 0 30%;
+        padding: 20px;
+        background-color: rgba($color: #000000, $alpha: 0.3);
+        // border: 10px solid;
+        max-width: 100%;
+        height: auto;
+        flex: 0 0 30%;
+
+        @media (max-width: 500px) {
+            background-size: contain;
+            height: 200px;
+            flex: 0 0 100%;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        span {
+            font-size: 13px;
+        }
+    }
+}
