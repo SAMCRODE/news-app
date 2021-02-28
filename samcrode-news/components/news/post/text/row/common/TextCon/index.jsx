@@ -1,31 +1,29 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import styles from './layout3.module.scss';
+import styles from './textCon.module.scss';
 
-const RowLayout3 = ({
-  text, firstLetterCap, firstLetter,
-}) => {
+const TextCon = ({ text, firstLetterCap, firstLetter }) => {
   const parts = text.split('<br>');
 
   return (
-    <div className={styles.contentType1}>
-      <div className={styles.textCon}>
-        {
+    <div className={styles.textCon}>
+      {
             firstLetterCap ? <span className={styles.firstLetter}>{firstLetter}</span>
-              : <span>{firstLetter}</span>
+              : { firstLetter }
         }
-        {
+      {
           parts.map((con) => (
-            <>
+            <span
+              key={con}
+            >
               {con}
               <br />
               <br />
-            </>
+            </span>
           ))
       }
-      </div>
     </div>
   );
 };
 
-export default RowLayout3;
+export default TextCon;
