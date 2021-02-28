@@ -1,7 +1,7 @@
 import React from 'react';
 import RowLayout1 from './row/Layout1';
 import RowLayout2 from './row/Layout2';
-import RowLayout3 from './row/Layout3';
+import PureHtml from './row/PureHtml';
 import styles from './text.module.scss';
 
 const PostText = () => {
@@ -38,11 +38,12 @@ const PostText = () => {
         image="https://maisdeoitomil.files.wordpress.com/2015/04/vegeta-chorando-lagrimas-negras.png?w=400"
         captionImage="Melhor amigo de Goku chora"
       />
-      <RowLayout3
-        text=" nossa equipe esclarece que não incitamos e somos contra qualquer tipo de violência. E essa reportagem
-        foi de cunho totalmente jornalístico e informativo!
-        "
-        firstLetter="A"
+      <PureHtml
+        html="<h3 style='text-align: center'>Notas</h3>"
+      />
+      <PureHtml
+        html="<p style='text-align: center'>A nossa equipe esclarece que não incitamos e somos contra qualquer tipo de violência. E essa reportagem
+        foi de cunho totalmente jornalístico e informativo!</p>"
       />
     </div>
   );

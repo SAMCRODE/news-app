@@ -1,40 +1,24 @@
+/* eslint-disable arrow-body-style */
 /* eslint-disable react/prop-types */
 import React from 'react';
+import ImageCon from '../common/ImageCon';
+import TextCon from '../common/TextCon';
 import styles from './layout1.module.scss';
 
 const RowLayout1 = ({
   text, firstLetterCap, firstLetter, image, captionImage,
 }) => {
-  const parts = text.split('<br>');
-
   return (
     <div className={styles.contentType1}>
-      <div className={styles.textCon}>
-        {
-            firstLetterCap ? <span className={styles.firstLetter}>{firstLetter}</span>
-              : { firstLetter }
-        }
-        {
-          parts.map((con) => (
-            <span
-              key={con}
-            >
-              {con}
-              <br />
-              <br />
-            </span>
-          ))
-      }
-      </div>
-      <div
-        className={styles.imageCon}
-      >
-        <img
-          src={image}
-          alt="gokuxratinho"
-        />
-        <span>{captionImage}</span>
-      </div>
+      <TextCon
+        text={text}
+        firstLetterCap={firstLetterCap}
+        firstLetter={firstLetter}
+      />
+      <ImageCon
+        image={image}
+        captionImage={captionImage}
+      />
     </div>
   );
 };

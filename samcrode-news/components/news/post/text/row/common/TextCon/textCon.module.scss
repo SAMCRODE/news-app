@@ -1,0 +1,15 @@
+.textCon {
+    .firstLetter {
+        font-size: 80px;
+    }
+
+    p {
+        align-self: start;
+    }
+
+    flex: 0 0 60%;
+
+    @media (max-width: 500px) {
+        flex: 0 0 100%;
+    }
+}
