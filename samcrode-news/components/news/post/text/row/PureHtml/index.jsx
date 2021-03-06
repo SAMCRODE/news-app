@@ -1,15 +1,21 @@
 /* eslint-disable react/no-danger */
 /* eslint-disable react/prop-types */
-import React from 'react';
-import styles from './pureHtml.module.scss';
+import React, { useEffect } from 'react';
+import TextCon from '../common/TextCon';
 
 const PureHtml = ({
   html,
-}) => (
-  <div
-    dangerouslySetInnerHTML={{ __html: html }}
-    className={styles.contentType1}
-  />
-);
+}) => {
+  useEffect(() => {
+    console.log('esse eh o html', html);
+  }, [html]);
 
+  return (
+    <TextCon
+      html={html}
+    />
+  );
+}
 export default PureHtml;
+
+export const ROWLAYOUTHTML = 'ROWLAYOUTHTML';

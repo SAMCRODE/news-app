@@ -24,3 +24,5 @@ const RowLayout2 = ({
 };
 
 export default RowLayout2;
+
+export const ROWLAYOUT2TYPE = 'ROWLAYOUT2';
