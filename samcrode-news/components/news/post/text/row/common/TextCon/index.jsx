@@ -1,19 +1,26 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import NonEditable from './NonEditable';
 import Editable from './Editable';
 import styles from './textCon.module.scss';
 
 // eslint-disable-next-line arrow-body-style
-const TextCon = ({ text, firstLetterCap, firstLetter }) => {
+const TextCon = ({
+  text = '', firstLetterCap = true, firstLetter = '', html,
+}) => {
   const [edit, setEdit] = useState(false);
   const [ctext, setText] = useState(text);
+  const [cHtml, setHtml] = useState(html);
   const [cfirstLetter, setFirstLetter] = useState(firstLetter);
 
   const onChange = (value) => {
     if (value.length > 0) {
-      setText(value.split('').slice(1).join(''));
-      setFirstLetter(value[0]);
+      if (html) {
+        setHtml(value);
+      } else {
+        setText(value.split('').slice(1).join(''));
+        setFirstLetter(value[0]);
+      }
     } else {
       setText('');
       setFirstLetter('');
@@ -35,12 +42,14 @@ const TextCon = ({ text, firstLetterCap, firstLetter }) => {
               firstLetter={cfirstLetter}
               setEdit={setEdit}
               onChange={onChange}
+              html={cHtml}
             />
           ) : (
             <NonEditable
               text={ctext}
               firstLetterCap={firstLetterCap}
               firstLetter={cfirstLetter}
+              html={cHtml}
             />
           )
         }

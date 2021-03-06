@@ -1,11 +1,14 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/prop-types */
 import React, { createRef, useEffect, useState } from 'react';
+import styles from './imageCon.module.scss';
 
 const Editable = ({
-  image, setEdit, onChange,
+  captionImage, image, setEdit, onChange, onChangeCaption,
 }) => {
   const [value, setValue] = useState('');
+  const [caption, setCaption] = useState('');
   const editRef = createRef();
 
   const checkClick = (event) => {
@@ -27,16 +30,33 @@ const Editable = ({
     onChange(event.target.value);
   };
 
+  const handleCaptionChange = (event) => {
+    setCaption(event.target.value);
+    onChangeCaption(event.target.value);
+  };
+
   useEffect(() => {
     setValue(image);
-  }, [image]);
+    setCaption(captionImage);
+  }, [image, captionImage]);
 
   return (
-    <input
+    <div
       ref={editRef}
-      value={value}
-      onChange={handleChange.bind(this)}
-    />
+      className={styles.editableContainer}
+    >
+      <label>Url da imagem</label>
+      <input
+        value={value}
+        onChange={handleChange.bind(this)}
+      />
+      <label>Caption</label>
+      <input
+        name="caption"
+        value={caption}
+        onChange={handleCaptionChange.bind(this)}
+      />
+    </div>
   );
 };
 

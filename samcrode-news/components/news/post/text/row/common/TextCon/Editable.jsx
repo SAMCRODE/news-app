@@ -3,7 +3,7 @@
 import React, { createRef, useEffect, useState } from 'react';
 
 const Editable = ({
-  text, firstLetter, setEdit, onChange,
+  text, firstLetter, setEdit, onChange, html,
 }) => {
   const [value, setValue] = useState('');
   const editRef = createRef();
@@ -28,7 +28,11 @@ const Editable = ({
   };
 
   useEffect(() => {
-    setValue(firstLetter + text);
+    if (html) {
+      setValue(html);
+    } else {
+      setValue(firstLetter + text);
+    }
   }, [text, firstLetter]);
 
   return (

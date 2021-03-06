@@ -6,13 +6,19 @@ import NonEditable from './NonEditable';
 import styles from './imageCon.module.scss';
 
 const ImageCon = ({
-  image, captionImage,
+  image = 'https://img1.migalhas.uol.com.br/gf_base/empresas/MIGA/imagens/17416E58717933B96B80FFA816DD8DFF719B_ratinho.jpg',
+  captionImage = 'caption this',
 }) => {
   const [edit, setEdit] = useState(false);
   const [cimage, setImage] = useState(image);
+  const [caption, setCaption] = useState(captionImage);
 
   const onChange = (value) => {
     setImage(value);
+  };
+
+  const onChangeCaption = (value) => {
+    setCaption(value);
   };
 
   return (
@@ -27,11 +33,12 @@ const ImageCon = ({
           <Editable
             setEdit={setEdit}
             image={cimage}
-            captionImage={captionImage}
+            captionImage={caption}
             onChange={onChange}
+            onChangeCaption={onChangeCaption}
           />
         )
-          : <NonEditable image={cimage} captionImage={captionImage} />
+          : <NonEditable image={cimage} captionImage={caption} />
       }
     </div>
   );

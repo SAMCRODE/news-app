@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    fieldset {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: space-between;
+
+        button {
+            cursor: pointer;
+            flex: 1 0 0px;
+            background-size: cover;
+            height: 100px;
+            background-position: center;
+            border-radius: 10px;
+            color: black;
+        }
+    }
+}
