@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useState } from 'react';
 import RowAdd from './row/Add';
@@ -7,10 +8,14 @@ import PureHtml from './row/PureHtml';
 import SwitchLayout from './row/SwitchLayout';
 import styles from './text.module.scss';
 
-const PostText = () => {
+const PostText = ({ edit = true }) => {
   const [rows, setRows] = useState([]);
   const addRow = (row) => {
     setRows([...rows, row]);
+  };
+
+  const deleteRow = (row) => {
+    setRows(rows.filter((obj) => obj.id !== row.id));
   };
 
   return (
@@ -51,12 +56,29 @@ const PostText = () => {
       />
       {
         rows.map((row) => (
-          <SwitchLayout {...row} />
+          <div
+            className={edit ? styles.itemEditable : styles.item}
+            key={row.id}
+          >
+            {edit && (
+            <button
+              onClick={deleteRow.bind(this, row)}
+              type="button"
+            >
+              x
+            </button>
+            )}
+            <SwitchLayout {...row} />
+          </div>
         ))
       }
-      <RowAdd
-        onAdd={addRow}
-      />
+      {
+        edit && (
+        <RowAdd
+          onAdd={addRow}
+        />
+        )
+      }
     </div>
   );
 };
