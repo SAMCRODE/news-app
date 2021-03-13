@@ -16,19 +16,23 @@ const RowAdd = ({ onAdd }) => {
       >
         <legend>Adicionar linha +</legend>
         <button
-          onClick={() => onAdd({ type: ROWLAYOUT1TYPE })}
+          onClick={() => onAdd({ type: ROWLAYOUT1TYPE, id: Math.random().toString() })}
           type="button"
         >
           Layout 1
         </button>
         <button
-          onClick={() => onAdd({ type: ROWLAYOUT2TYPE })}
+          onClick={() => onAdd({ type: ROWLAYOUT2TYPE, id: Math.random().toString() })}
           type="button"
         >
           Layout 2
         </button>
         <button
-          onClick={() => onAdd({ type: ROWLAYOUTHTML, html: '<p style="text-align: center">Edite aqui</p>' })}
+          onClick={() => onAdd({
+            type: ROWLAYOUTHTML,
+            html: '<p style="text-align: center">Edite aqui</p>',
+            id: Math.random().toString(),
+          })}
           type="button"
         >
           Html

@@ -1,7 +1,35 @@
+@import '../../../../styles/common.scss';
+
 .contentNew {
     display: flex;
     flex-direction: column;
     color: white;
     text-align: left;
     font-size: 20px;
+
+    .item {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .itemEditable {
+        display: flex;
+        flex-direction: column;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        button {
+            position: absolute;
+            cursor: pointer;
+            align-self: flex-end;
+            background-color: transparent;
+            // background-color: $danger;
+            text-align: center;
+            border: none;
+            color: $danger;
+            font-size: 30px;
+        }
+    }
 }

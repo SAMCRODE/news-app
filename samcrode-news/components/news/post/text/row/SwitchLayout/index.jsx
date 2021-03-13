@@ -11,9 +11,9 @@ const SwitchLayout = (props) => {
   if (props.type === ROWLAYOUT1TYPE) {
     return (<RowLayout1 {...props}/>);
   } if (props.type === ROWLAYOUT2TYPE) {
-    return (<RowLayout2 {...props} />);
+    return (<RowLayout2 {...props}/>);
   }
-  return <PureHtml {...props} />;
+  return <PureHtml {...props}/>;
 };
 
 export default SwitchLayout;
