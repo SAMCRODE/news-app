@@ -1,0 +1,57 @@
+@import '../../../styles/common.scss';
+
+.containerFeed {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+
+    .containerItem {
+        margin-top: 10px;
+        display: flex;
+        justify-content: flex-start;
+        background-color: rgba(255, 255, 255, 0.8);
+
+        .newImage {
+            height: 200px;
+            width: 300px;
+            background-image: url('https://i.ytimg.com/vi/UNFTssFrUro/hqdefault.jpg');
+            background-size: cover;
+
+            @media (max-width: 440px) {
+                display: none;
+            }
+        }
+
+        .metaContainer {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+
+            .categoryLabel {
+                padding-top: 10px;
+                font-weight: bolder;
+                margin-bottom: 0px;
+                padding-bottom: 0px;
+                color: $blue_vapor_dark;
+            }
+            h2 {
+                margin-top: 3px;
+                padding-top: 0px;
+                color: $purple_vapor;
+                font-size: 30px;
+                cursor: pointer;
+            }
+
+            .brief {
+                margin-top: 0px;
+                font-size: 20px;
+            }
+
+            .time {
+                justify-self: flex-end;
+            }
+        }
+    }
+}
