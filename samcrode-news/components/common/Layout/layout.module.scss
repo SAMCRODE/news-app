@@ -16,8 +16,29 @@
     padding: 20px;
 
     .innerContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         width: 80%;
         color: wheat;
+    
+        .profile {
+            display: flex;
+    
+            .profileImage {
+                width: 50px;
+                height: 50px;
+                border-radius: 25px;
+                background-image: url('https://www.einerd.com.br/wp-content/uploads/2017/06/dragon-ball-super-050-05-goku-890x466.jpg');
+                background-size: cover;
+                margin-right: 10px;
+                cursor: pointer;
+            }
+    
+            p {
+                color: white;
+            }
+        }
     }
 }
 

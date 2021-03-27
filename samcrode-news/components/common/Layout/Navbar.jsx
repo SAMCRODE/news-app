@@ -9,6 +9,10 @@ const Footer = () => (
       <Link href="/">
         <a>SAMCRODE</a>
       </Link>
+      <div className={styles.profile}>
+        <div className={styles.profileImage} />
+        <p>Goku</p>
+      </div>
     </div>
   </div>
 );
