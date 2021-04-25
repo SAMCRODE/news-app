@@ -6,18 +6,18 @@ import TextCon from '../common/TextCon';
 import styles from './layout1.module.scss';
 
 const RowLayout1 = ({
-  text, firstLetterCap, firstLetter, image, captionImage,
+  Content, firstLetterCap, FirstLetter, ImageUrl, CaptionImage,
 }) => {
   return (
     <div className={styles.contentType1}>
       <TextCon
-        text={text}
+        text={Content}
         firstLetterCap={firstLetterCap}
-        firstLetter={firstLetter}
+        firstLetter={FirstLetter}
       />
       <ImageCon
-        image={image}
-        captionImage={captionImage}
+        image={ImageUrl}
+        captionImage={CaptionImage}
       />
     </div>
   );
@@ -25,4 +25,4 @@ const RowLayout1 = ({
 
 export default RowLayout1;
 
-export const ROWLAYOUT1TYPE = 'ROWLAYOUT1';
+export const ROWLAYOUT1TYPE = 'ROWLAYOUT1TYPE';
