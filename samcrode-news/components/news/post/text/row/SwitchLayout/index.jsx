@@ -8,9 +8,9 @@ import RowLayout2, { ROWLAYOUT2TYPE } from '../Layout2';
 import PureHtml from '../PureHtml';
 
 const SwitchLayout = (props) => {
-  if (props.type === ROWLAYOUT1TYPE) {
+  if (props.Type === ROWLAYOUT1TYPE) {
     return (<RowLayout1 {...props}/>);
-  } if (props.type === ROWLAYOUT2TYPE) {
+  } if (props.Type === ROWLAYOUT2TYPE) {
     return (<RowLayout2 {...props}/>);
   }
   return <PureHtml {...props}/>;

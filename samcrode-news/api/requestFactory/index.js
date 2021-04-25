@@ -1,1 +1,6 @@
-export { getLastest, getPaginated, getHome } from './news';
+export {
+  getLastest,
+  getPaginated,
+  getHome,
+  getNewDetail,
+} from './news';

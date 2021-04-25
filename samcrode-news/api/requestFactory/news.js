@@ -25,3 +25,12 @@ export const getHome = () => ({
   method: 'get',
   url: '/news/home',
 });
+
+/**
+ * get home page news
+ * @return {Object} request - partial axios request without baseURL
+ */
+export const getNewDetail = (id) => ({
+  method: 'get',
+  url: `/news/detail/${id}`,
+});

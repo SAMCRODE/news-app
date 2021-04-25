@@ -5,12 +5,12 @@ import React from 'react';
 import TextCon from '../common/TextCon';
 
 const PureHtml = ({
-  html,
+  Content,
 }) => {
   return (
     <>
       <TextCon
-        html={html}
+        html={Content}
       />
     </>
   );

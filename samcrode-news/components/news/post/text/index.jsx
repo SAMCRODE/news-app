@@ -8,57 +8,57 @@ import PureHtml from './row/PureHtml';
 import SwitchLayout from './row/SwitchLayout';
 import styles from './text.module.scss';
 
-const PostText = ({ edit = true }) => {
-  const [rows, setRows] = useState([]);
+const PostText = ({ edit = true, saverows }) => {
+  const [rows, setRows] = useState(saverows);
   const addRow = (row) => {
     setRows([...rows, row]);
   };
 
   const deleteRow = (row) => {
-    setRows(rows.filter((obj) => obj.id !== row.id));
+    setRows(rows.filter((obj) => obj.Id !== row.Id));
   };
 
   return (
     <div className={styles.contentNew}>
       <RowLayout1
-        text="a última segunda feira foram divulgadas imagens que deixaram vários usuários confusos
-      na internet. Nas imagens vemos o apresentador de televisão Ratinho espancando o herói
-      Goku. Goku derrotou grandes vilões como Freezer e Verditas, mas parece não conseguir
-      fazer o mesmo com o apresentador do sistema brasileira de televisão (SBT).
-      <br>
-      Nossa equipe buscou contato com a equipe do apresentador, e obtivemos a surpreendente
-      resposta que sim, as imagens são verdadeiras, e vão ao ár semana que vem.
-      Também buscamos a família de Goku que desesperada não tem resposta do mesmo desde domingo passado,
-      segundo eles Goku teria dito que voltaria assim que acabasse o programa do Faustão, mas isso não ocorreu.
-      "
-        firstLetter="N"
+        Content="a última segunda feira foram divulgadas imagens que deixaram vários usuários confusos
+        na internet. Nas imagens vemos o apresentador de televisão Ratinho espancando o herói
+        Goku. Goku derrotou grandes vilões como Freezer e Verditas, mas parece não conseguir
+        fazer o mesmo com o apresentador do sistema brasileira de televisão (SBT).
+        <br>
+        Nossa equipe buscou contato com a equipe do apresentador, e obtivemos a surpreendente
+        resposta que sim, as imagens são verdadeiras, e vão ao ár semana que vem.
+        Também buscamos a família de Goku que desesperada não tem resposta do mesmo desde domingo passado,
+        segundo eles Goku teria dito que voltaria assim que acabasse o programa do Faustão, mas isso não ocorreu.
+        "
+        FirstLetter="N"
         firstLetterCap
-        image="https://pbs.twimg.com/media/D9EaDlrUIAEuiVW.png:large"
-        captionImage="Ratinho segurando goku"
+        ImageUrl="https://pbs.twimg.com/media/D9EaDlrUIAEuiVW.png:large"
+        CaptionImage="Ratinho segurando goku"
       />
       <RowLayout2
-        text=" melhor amigo de goku, Verdita, disse com lágrimas de ódio, que vingará o amigo caso a notícia seja
+        Content=" melhor amigo de goku, Verdita, disse com lágrimas de ódio, que vingará o amigo caso a notícia seja
         verdadeira. 'Esse desgraçado irá sofrer pelo que fez'
         <br>
         Segundo ele, o amigo já lhe ajudou de várias formas, e que não deixará impune essa injustiça.
         "
-        firstLetter="O"
+        FirstLetter="O"
         firstLetterCap
-        image="https://maisdeoitomil.files.wordpress.com/2015/04/vegeta-chorando-lagrimas-negras.png?w=400"
-        captionImage="Melhor amigo de Goku chora"
+        ImageUrl="https://maisdeoitomil.files.wordpress.com/2015/04/vegeta-chorando-lagrimas-negras.png?w=400"
+        CaptionImage="Melhor amigo de Goku chora"
       />
       <PureHtml
-        html="<h3 style='text-align: center'>Notas</h3>"
+        Content="<h3 style='text-align: center'>Notas</h3>"
       />
       <PureHtml
-        html="<p style='text-align: center'>A nossa equipe esclarece que não incitamos e somos contra qualquer tipo de violência. E essa reportagem
+        Content="<p style='text-align: center'>A nossa equipe esclarece que não incitamos e somos contra qualquer tipo de violência. E essa reportagem
         foi de cunho totalmente jornalístico e informativo!</p>"
       />
       {
         rows.map((row) => (
           <div
             className={edit ? styles.itemEditable : styles.item}
-            key={row.id}
+            key={row.Id}
           >
             {edit && (
             <button
