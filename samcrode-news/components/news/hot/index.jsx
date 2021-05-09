@@ -54,7 +54,10 @@ const HotNews = ({ news }) => {
         <div className={styles.newsBellow}>
           {
             news.slice(3).map((obj) => (
-              <div className={styles.newsBellowItem}>
+              <div
+                key={obj.Id}
+                className={styles.newsBellowItem}
+              >
                 <Card
                   onClick={() => { navigateNews(obj.Id); }}
                   category={obj.CategoryName}
