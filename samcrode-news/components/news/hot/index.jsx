@@ -10,8 +10,8 @@ const HotNews = ({ news }) => {
   const rbNew = news[1];
   const rcNew = news[2];
 
-  const navigateNews = () => {
-    router.push('/news');
+  const navigateNews = (id) => {
+    router.push(`/news/${id}`);
   };
 
   return (
@@ -20,7 +20,7 @@ const HotNews = ({ news }) => {
         <div className={styles.cardleft}>
           <div className={styles.firstCard}>
             <Card
-              onClick={navigateNews}
+              onClick={() => { navigateNews(ulNew.Id); }}
               category={ulNew.CategoryName}
               title={ulNew.Name}
               backgroundColor={ulNew.BackgroundColor}
@@ -30,7 +30,7 @@ const HotNews = ({ news }) => {
           </div>
           <div className={styles.secondCard}>
             <Card
-              onClick={navigateNews}
+              onClick={() => { navigateNews(rbNew.Id); }}
               category={rbNew.CategoryName}
               title={rbNew.Name}
               backgroundColor={rbNew.BackgroundColor}
@@ -41,7 +41,7 @@ const HotNews = ({ news }) => {
         </div>
         <div className={styles.cardright}>
           <Card
-            onClick={navigateNews}
+            onClick={() => { navigateNews(rcNew.Id); }}
             category={rcNew.CategoryName}
             title={rcNew.Name}
             backgroundColor={rcNew.BackgroundColor}
@@ -56,7 +56,7 @@ const HotNews = ({ news }) => {
             news.slice(3).map((obj) => (
               <div className={styles.newsBellowItem}>
                 <Card
-                  onClick={navigateNews}
+                  onClick={() => { navigateNews(obj.Id); }}
                   category={obj.CategoryName}
                   title={obj.Name}
                   backgroundColor={obj.BackgroundColor}
