@@ -30,7 +30,7 @@ const RowAdd = ({ onAdd }) => {
         <button
           onClick={() => onAdd({
             Type: ROWLAYOUTHTML,
-            html: '<p style="text-align: center">Edite aqui</p>',
+            Content: '<p style="text-align: center">Edite aqui</p>',
             Id: Math.random().toString(),
           })}
           type="button"

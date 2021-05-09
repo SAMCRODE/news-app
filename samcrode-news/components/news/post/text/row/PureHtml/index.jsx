@@ -18,4 +18,4 @@ const PureHtml = ({
 
 export default PureHtml;
 
-export const ROWLAYOUTHTML = 'ROWLAYOUTHTML';
+export const ROWLAYOUTHTML = 'ROWPUREHTML';
