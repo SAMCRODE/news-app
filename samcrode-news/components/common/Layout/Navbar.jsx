@@ -2,6 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import styles from './layout.module.scss';
+import UserMenu from './UserMenu';
 
 const Footer = () => (
   <div className={styles.navcontainer}>
@@ -9,10 +10,7 @@ const Footer = () => (
       <Link href="/">
         <a>SAMCRODE</a>
       </Link>
-      <div className={styles.profile}>
-        <div className={styles.profileImage} />
-        <p>Goku</p>
-      </div>
+      <UserMenu />
     </div>
   </div>
 );
