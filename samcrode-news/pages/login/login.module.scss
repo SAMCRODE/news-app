@@ -1,0 +1,54 @@
+@import '../../styles/common.scss';
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba($color: #ffffff, $alpha: 0.9);
+    background: linear-gradient(rgba(#e66465, 0.9), rgba(#9198e5, 0.9));
+    width: 60vh;
+    border-radius: 10px;
+    padding: 20px;
+
+    .loginHeader {
+        color: rgba($purple_vapor, 1.0);
+        border-bottom: rgb(36, 9, 110) 1px solid;
+        margin-bottom: 20px;
+    }
+
+    .containerBellow {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        span {
+            padding: 10px;
+        }
+        .btn {
+            @include btn();
+            align-self: center;
+            background: linear-gradient(#e66465, #6673ff);
+            border: none;
+            color: white;
+            padding: 10px;
+
+            &:hover {
+                background: rgba($purple_vapor, 0.5);
+                color: white;
+            }
+        }
+    }
+}
+.container {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.loginWall {
+    align-self: flex-start;
+    flex: 0 0 30%;
+    background: -webkit-linear-gradient(rgba(#ffffff, 1), rgba(#9198e5, 1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 3px 3px 20px rgb(3, 34, 119);
+}

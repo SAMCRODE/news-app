@@ -3,15 +3,16 @@ import React from 'react';
 
 import Navbar from './Navbar';
 import Footer from './Footer';
-import ClickableLogo from '../ClickableLogo';
+import styles from './layout.module.scss';
 
 const Layout = ({ children }) => (
-  <>
-    <ClickableLogo />
+  <div className={styles.acontainer}>
     <Navbar />
-    {children}
+    <div>
+      {children}
+    </div>
     <Footer />
-  </>
+  </div>
 );
 
 export default Layout;

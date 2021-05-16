@@ -1,32 +1,33 @@
 @import '../../../styles/common.scss';
 
-.container {
+.acontainer {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
 }
 
 .navcontainer {
-    background-color: $primary_color_dark;
     padding-top: 0;
     margin-top: 0;
-    position: absolute;
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: 20px;
+    flex-direction: column;
 
     .innerContainer {
+        background-color: $primary_color_dark;
         display: flex;
-        justify-content: space-between;
+        padding: 20px;
+        justify-content: space-around;
         align-items: center;
-        width: 80%;
+        width: 100%;
         color: wheat;
     }
 }
 
 .fcontainer {
     background-color: $primary_color_dark;
-    position: absolute;
     width: 100%;
     text-align: center;
     color: wheat;
@@ -58,8 +59,8 @@
 
 .dropdownMenu {
     position: absolute;
-    top: 60%;
-    right: 10%;
+    top: 20%;
+    right: 20%;
     z-index: 1000;
     float: left;
     min-width: 10rem;
