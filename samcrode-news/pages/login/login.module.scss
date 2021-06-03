@@ -1,0 +1,84 @@
+@import '../../styles/common.scss';
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba($color: #ffffff, $alpha: 0.9);
+    background: linear-gradient(rgba(#e66465, 0.9), rgba(#9198e5, 0.9));
+    width: 60vh;
+    border-radius: 10px;
+    padding: 20px;
+
+    .loginHeader {
+        color: rgba($purple_vapor, 1.0);
+        border-bottom: rgb(36, 9, 110) 1px solid;
+        margin-bottom: 20px;
+    }
+
+    .containerBellow {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        span {
+            padding: 10px;
+        }
+        .btn {
+            @include btn();
+            align-self: center;
+            background: linear-gradient(#e66465, #6673ff);
+            border: none;
+            color: white;
+            padding: 10px;
+
+            &:hover {
+                background: rgba($purple_vapor, 0.5);
+                color: white;
+            }
+        }
+    }
+}
+.container {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    flex-wrap: wrap-reverse;
+    padding: 20px;
+}
+
+.loginWall {
+    box-shadow: 0 3px 1px -2px rgba(34,48,92,.2),
+    0 2px 2px 0 rgba(34,48,92,.14), 0 1px 5px 0 rgba(34,48,92,.12);
+    align-self: flex-start;
+    flex: 0 0 40%;
+    background-image: url('/images/marcelobretas.jpg');
+    background-size:cover;
+    background-position: bottom;
+    height: 500px;
+    filter: grayscale(0.8);
+    border-radius: 30px;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    @media (max-width:1000px) {
+        display: none;
+    }
+    .loginWallText {
+        background: linear-gradient(rgba($primary_pink_vapor, 1.0),
+            rgba($purple_vapor, 0.2));
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        color: white;
+        flex-direction: column;
+
+        .registerButton {
+            @include btn();
+            background: linear-gradient(rgba($primary_pink_vapor, 0.8),
+                rgba($purple_vapor, 0.8));
+            border: none;
+            color: white;
+        }
+    }
+}

@@ -2,17 +2,17 @@
 import React from 'react';
 import Link from 'next/link';
 import styles from './layout.module.scss';
+import UserMenu from './UserMenu';
+import ClickableLogo from '../ClickableLogo';
 
 const Footer = () => (
   <div className={styles.navcontainer}>
+    <ClickableLogo />
     <div className={styles.innerContainer}>
       <Link href="/">
         <a>SAMCRODE</a>
       </Link>
-      <div className={styles.profile}>
-        <div className={styles.profileImage} />
-        <p>Goku</p>
-      </div>
+      <UserMenu />
     </div>
   </div>
 );

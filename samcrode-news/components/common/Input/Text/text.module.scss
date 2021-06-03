@@ -1,0 +1,72 @@
+@import '../../../../styles/common.scss';
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+
+    .label-input {
+        color: $primary_color_dark;
+        align-self: flex-start;
+    }
+
+    input {
+        color: black;
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        margin: 0em !important;
+        border-radius: 5px;
+        font-size: 16px;
+        background-color: rgba($color: #F0F0F0, $alpha: 0.5);
+        z-index: 2;
+        // border: #aaaaaa solid 1px;
+        border: none;
+        outline:none!important;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+        border-width 0.1s ease-in-out;
+
+        &:focus{
+            // border: $primary_color_dark solid 1px;
+            outline:none!important;
+        }
+
+        &:hover {
+            background-color: rgba($color: #F0F0F0, $alpha: 0.6);
+        }
+
+        ::placeholder {
+            color: rgba($color: $primary_color_dark, $alpha: 1.0);
+        }
+    }
+
+    .input-control {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0px;
+        width: 100%;
+    }
+}
+
+.input-icon {
+    position: relative;
+    left: 93%;
+    top: -35px;
+    color: $primary_color_dark;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.invalidLabel {
+    position: absolute;
+    padding: 0px !important;
+    margin: 0px !important;
+    padding-bottom: 0px !important;
+    padding-top: 75px !important;
+    z-index: 1 !important;
+    color: #bd0000;
+}
