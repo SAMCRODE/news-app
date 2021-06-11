@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import TextInput from '../../components/common/Input/Text';
 import styles from './login.module.scss';
@@ -26,7 +27,7 @@ const LoginForm = () => (
         Entrar
       </button>
       <span>ou</span>
-      <a href="//#endregion">Criar Conta</a>
+      <Link href="/register">Criar Conta</Link>
     </div>
   </form>
 );

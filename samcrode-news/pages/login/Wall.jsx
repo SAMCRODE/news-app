@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import styles from './login.module.scss';
 
 const LoginWall = () => (
@@ -11,12 +12,16 @@ const LoginWall = () => (
       <h4>Cansado de fazer grana com colheitas de trigo</h4>
       <span>Fez um ato mais nobre ao construir esse site</span>
       <h4>Ele convida você, sim você, para fazer parte</h4>
-      <button
-        type="button"
-        className={styles.registerButton}
+      <Link
+        href="/register"
       >
-        Criar uma conta
-      </button>
+        <button
+          type="button"
+          className={styles.registerButton}
+        >
+          Criar uma conta
+        </button>
+      </Link>
     </div>
   </div>
 );

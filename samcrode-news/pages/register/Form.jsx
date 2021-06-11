@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import TextInput from '../../components/common/Input/Text';
 import styles from './register.module.scss';
@@ -36,7 +37,7 @@ const RegisterForm = () => (
         Criar Conta
       </button>
       <span>ou</span>
-      <a href="//#endregion">Já tenho uma conta</a>
+      <Link href="/login">Já tenho uma conta</Link>
     </div>
   </form>
 );

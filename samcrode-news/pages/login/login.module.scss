@@ -76,7 +76,7 @@
         .registerButton {
             @include btn();
             background: linear-gradient(rgba($primary_pink_vapor, 0.8),
-                rgba($purple_vapor, 0.8));
+                rgba($purple_vapor, 0.8)) !important;
             border: none;
             color: white;
         }
