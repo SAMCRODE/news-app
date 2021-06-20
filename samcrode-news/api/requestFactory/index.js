@@ -4,3 +4,6 @@ export {
   getHome,
   getNewDetail,
 } from './news';
+export {
+  uploadFile,
+} from './upload';

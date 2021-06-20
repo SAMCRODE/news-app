@@ -27,4 +27,10 @@
 .editableContainer {
     display: flex;
     flex-direction: column;
+
+    .imageContainer {
+        width: 100%;
+        background-size: cover;
+        cursor: pointer;
+    }
 }
