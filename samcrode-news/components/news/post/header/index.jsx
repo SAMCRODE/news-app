@@ -1,7 +1,9 @@
 import React from 'react';
 import styles from './header.module.scss';
 
-const PostHeader = ({name, description}) => {
+const PostHeader = ({
+  name, description, authorName, authorProfile,
+}) => {
   const nClick = () => {
     console.log('clicked');
   };
@@ -11,9 +13,12 @@ const PostHeader = ({name, description}) => {
       <h2 className={styles.title}>{name}</h2>
       <h3 className={styles.description}>{description}</h3>
       <div className={styles.authorSection}>
-        <div className={styles.authorPhoto} />
+        <div
+          className={styles.authorPhoto}
+          style={{ backgroundImage: `url(${authorProfile})` }}
+        />
         <div className={styles.nameAndData}>
-          <span>Merlin</span>
+          <span>{authorName}</span>
           <span className={styles.data}>Em 12/12/2021 ás 14:39</span>
         </div>
       </div>

@@ -29,6 +29,7 @@
             border: none;
             color: white;
             padding: 10px;
+            margin-top: 10px;
 
             &:hover {
                 background: rgba($purple_vapor, 0.5);
@@ -76,7 +77,7 @@
         .registerButton {
             @include btn();
             background: linear-gradient(rgba($primary_pink_vapor, 0.8),
-                rgba($purple_vapor, 0.8)) !important;
+                rgba($purple_vapor, 0.8));
             border: none;
             color: white;
         }

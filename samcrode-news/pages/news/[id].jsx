@@ -11,6 +11,8 @@ export default function News({ post }) {
     <div className={styles.container}>
       <div className={styles.newsContent}>
         <PostHeader
+          authorName={post.Author.Name}
+          authorProfile={post.Author.ImageUrl}
           name={(post || {}).Name}
           description={(post || {}).Description}
         />
