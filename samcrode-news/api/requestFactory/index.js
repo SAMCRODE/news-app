@@ -7,3 +7,6 @@ export {
 export {
   uploadFile,
 } from './upload';
+export {
+  createAccount,
+} from './users';
