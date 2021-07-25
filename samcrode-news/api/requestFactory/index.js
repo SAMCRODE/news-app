@@ -10,3 +10,6 @@ export {
 export {
   createAccount,
 } from './users';
+export {
+  auth,
+} from './auth';
