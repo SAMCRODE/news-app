@@ -1,15 +1,16 @@
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 import TextInput from '../../components/common/Input/Text';
 import styles from './login.module.scss';
 import * as requestFactory from '../../api/requestFactory';
 import makeRequest from '../../api/axios';
+import {User} from '../../models/User';
 
 const LoginForm = () => {
   const [email, setEmail] = useState({ value: '', invalidMsg: '' });
   const [password, setPassword] = useState({ value: '', invalidMsg: '' });
 
-  const handleEmailChange = (text) => {
+  const handleEmailChange = (text: string) => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     if (!re.test(text.toLowerCase())) {
@@ -19,7 +20,7 @@ const LoginForm = () => {
     }
   };
 
-  const handlePasswordChange = (text) => {
+  const handlePasswordChange = (text: string) => {
     if (text.length === 0) {
       setPassword({ value: text, invalidMsg: 'Campo obrigatório' });
     } else {
@@ -27,10 +28,12 @@ const LoginForm = () => {
     }
   };
 
-  const authUser = (e) => {
+  const authUser = (e: FormEvent) => {
     e.preventDefault();
 
-    makeRequest(requestFactory.auth({ email: email.value, password: password.value }))
+    const us: User = {Email: email.value, Password: password.value};
+
+    makeRequest(requestFactory.auth(us))
       .then((response) => {
         if (response) {
           console.log(response);
