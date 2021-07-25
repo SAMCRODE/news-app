@@ -3,13 +3,26 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import styles from './text.module.scss';
+import PropTypes from 'prop-types';
+
+interface TextInputProps {
+  value: string;
+  onChange: any;
+  invalidMsg: string;
+  label: string;
+  paddingTop?: number;
+  type?: string;
+  placeholder?: string;
+  icon?: any;
+  maxLength?: number;
+}
 
 const TextInput = ({
   value = '', onChange = () => { }, invalidMsg, label,
   paddingTop, type, placeholder, icon, maxLength = 256,
-}) => {
+}: TextInputProps) => {
   const [initial, setInitial] = useState(value || '');
-  const handleOnChange = (text) => {
+  const handleOnChange = (text: string) => {
     setInitial(text);
     onChange(text);
   };
