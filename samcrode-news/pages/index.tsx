@@ -8,8 +8,14 @@ import LastestNews from '../components/news/lastest';
 import styles from '../styles/Home.module.scss';
 import * as requestFactory from '../api/requestFactory';
 import makeRequest from '../api/axios';
+import { New } from '../models/New';
 
-export default function Home({ lastest, hot }) {
+interface HomeProps {
+  lastest: New[];
+  hot: New[];
+}
+
+export default function Home({ lastest, hot }: HomeProps) {
   return (
     <div className={styles.container}>
       <Head>
@@ -31,7 +37,7 @@ export default function Home({ lastest, hot }) {
   );
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps(context: any) {
   const res = await makeRequest(requestFactory.getHome());
 
   return {

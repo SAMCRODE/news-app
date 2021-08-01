@@ -3,14 +3,19 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import Card from '../../common/Card';
 import styles from './hot.module.scss';
+import { New } from '../../../models/New';
 
-const HotNews = ({ news }) => {
+interface HotNewsProps {
+  news: New[];
+}
+
+const HotNews = ({ news }: HotNewsProps) => {
   const router = useRouter();
   const ulNew = news[0];
   const rbNew = news[1];
   const rcNew = news[2];
 
-  const navigateNews = (id) => {
+  const navigateNews = (id: number) => {
     router.push(`/news/${id}`);
   };
 
@@ -20,7 +25,7 @@ const HotNews = ({ news }) => {
         <div className={styles.cardleft}>
           <div className={styles.firstCard}>
             <Card
-              onClick={() => { navigateNews(ulNew.Id); }}
+              onClick={() => { navigateNews(ulNew.Id as number); }}
               category={ulNew.CategoryName}
               title={ulNew.Name}
               backgroundColor={ulNew.BackgroundColor}
@@ -30,7 +35,7 @@ const HotNews = ({ news }) => {
           </div>
           <div className={styles.secondCard}>
             <Card
-              onClick={() => { navigateNews(rbNew.Id); }}
+              onClick={() => { navigateNews(rbNew.Id as number); }}
               category={rbNew.CategoryName}
               title={rbNew.Name}
               backgroundColor={rbNew.BackgroundColor}
@@ -41,11 +46,10 @@ const HotNews = ({ news }) => {
         </div>
         <div className={styles.cardright}>
           <Card
-            onClick={() => { navigateNews(rcNew.Id); }}
+            onClick={() => { navigateNews(rcNew.Id as number); }}
             category={rcNew.CategoryName}
             title={rcNew.Name}
             backgroundColor={rcNew.BackgroundColor}
-            marginLeft={10}
             image={rcNew.ImageUrl}
           />
         </div>
@@ -59,7 +63,7 @@ const HotNews = ({ news }) => {
                 className={styles.newsBellowItem}
               >
                 <Card
-                  onClick={() => { navigateNews(obj.Id); }}
+                  onClick={() => { navigateNews(obj.Id as number); }}
                   category={obj.CategoryName}
                   title={obj.Name}
                   backgroundColor={obj.BackgroundColor}
