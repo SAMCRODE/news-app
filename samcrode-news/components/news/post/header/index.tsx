@@ -1,9 +1,16 @@
 import React from 'react';
 import styles from './header.module.scss';
 
+interface PostHeaderProps {
+  name: string;
+  description: string;
+  authorName: string;
+  authorProfile: string;
+}
+
 const PostHeader = ({
   name, description, authorName, authorProfile,
-}) => {
+}: PostHeaderProps) => {
   const nClick = () => {
     console.log('clicked');
   };

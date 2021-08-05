@@ -6,7 +6,11 @@ import { ROWLAYOUT2TYPE } from '../Layout2';
 import { ROWLAYOUTHTML } from '../PureHtml';
 import styles from './add.module.scss';
 
-const RowAdd = ({ onAdd }) => {
+interface RowAddProps {
+  onAdd: any;
+}
+
+const RowAdd = ({ onAdd }: RowAddProps) => {
   return (
     <div
       className={styles.container}
