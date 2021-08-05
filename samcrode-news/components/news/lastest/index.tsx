@@ -1,9 +1,14 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import { New } from '../../../models/New';
 import ItemRow from './ItemRow';
 import styles from './lastest.module.scss';
 
-const LastestNews = ({ news }) => (
+interface LastestNewsProps {
+  news: New[];
+}
+
+const LastestNews = ({ news }: LastestNewsProps) => (
   <div className={styles.containerL}>
     <h4>Últimas Notícias</h4>
     {

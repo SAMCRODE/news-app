@@ -5,14 +5,20 @@ import PostHeader from '../../components/news/post/header';
 import PostText from '../../components/news/post/text';
 import styles from './news.module.scss';
 import * as requestFactory from '../../api/requestFactory';
+import { New } from '../../models/New';
+import { User } from '../../models/User';
 
-export default function News({ post }) {
+interface NewsProps {
+  post: New;
+}
+
+export default function News({ post }: NewsProps) {
   return (
     <div className={styles.container}>
       <div className={styles.newsContent}>
         <PostHeader
-          authorName={post.Author.Name}
-          authorProfile={post.Author.ImageUrl}
+          authorName={(post.Author as User).Name}
+          authorProfile={(post.Author as User).ImageUrl}
           name={(post || {}).Name}
           description={(post || {}).Description}
         />

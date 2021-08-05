@@ -2,9 +2,18 @@
 import React from 'react';
 import styles from './card.module.scss';
 
+interface CardProps {
+  margin?: number;
+  image?: string;
+  category?: string;
+  title?: string;
+  backgroundColor?: string;
+  onClick?: any;
+}
+
 const Card = ({
-  margin, image, category, title, backgroundColor, onClick
-}) => (
+  margin, image, category, title, backgroundColor, onClick,
+}: CardProps) => (
   <div
     onClick={onClick.bind(this)}
     role="link"

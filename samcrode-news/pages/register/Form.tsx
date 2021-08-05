@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import React, { FormEvent, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import makeRequest from '../../api/axios';
 import TextInput from '../../components/common/Input/Text';
@@ -18,7 +18,7 @@ const RegisterForm = () => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  const onSubmit = (e) => {
+  const onSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (loading) return;
 
@@ -38,7 +38,7 @@ const RegisterForm = () => {
     });
   };
 
-  const handleEmailChange = (text) => {
+  const handleEmailChange = (text: string) => {
     setFilled(true);
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -49,7 +49,7 @@ const RegisterForm = () => {
     }
   };
 
-  const handleNameChange = (text) => {
+  const handleNameChange = (text: string) => {
     setFilled(true);
     if (text.length === 0) {
       setName({ value: text, invalidMsg: 'Campo obrigatório' });
@@ -58,7 +58,7 @@ const RegisterForm = () => {
     }
   };
 
-  const handleConfirmEmailChange = (text) => {
+  const handleConfirmEmailChange = (text: string) => {
     setFilled(true);
     if (text !== email.value) {
       setConfirmEmail({ value: text, invalidMsg: 'Emails não coincidem' });
@@ -67,7 +67,7 @@ const RegisterForm = () => {
     }
   };
 
-  const handlePasswordChange = (text) => {
+  const handlePasswordChange = (text: string) => {
     setFilled(true);
     if (text.length < 8) {
       setPassword({ value: text, invalidMsg: `Password precisa ter pelo menos ${minPassLen} caracteres` });
