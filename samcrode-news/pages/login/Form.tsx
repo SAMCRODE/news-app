@@ -5,8 +5,13 @@ import styles from './login.module.scss';
 import * as requestFactory from '../../api/requestFactory';
 import makeRequest from '../../api/axios';
 import {User} from '../../models/User';
+import { useDispatch } from 'react-redux';
+import { setAuth } from '../../store/auth/authSlice';
+import { useRouter } from 'next/router';
 
 const LoginForm = () => {
+  const dispatch = useDispatch();
+  const router = useRouter();
   const [email, setEmail] = useState({ value: '', invalidMsg: '' });
   const [password, setPassword] = useState({ value: '', invalidMsg: '' });
 
@@ -36,7 +41,8 @@ const LoginForm = () => {
     makeRequest(requestFactory.auth(us))
       .then((response) => {
         if (response) {
-          console.log(response);
+          dispatch(setAuth(response))
+          router.push('/');
         }
       });
   };
