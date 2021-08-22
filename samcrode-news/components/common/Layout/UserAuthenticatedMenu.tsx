@@ -5,11 +5,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faNewspaper, faSkiing, faUserAstronaut,
 } from '@fortawesome/free-solid-svg-icons';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styles from './layout.module.scss';
+import { logout } from '../../../store/auth/authSlice';
 
-const UserMenu = () => {
-  const isAuthenticated = useSelector((state) => state.auth.authenticated);
+const UserAuthenticatedMenu = () => {
+  const dispatch = useDispatch();
   const profileImage = useSelector((state) => state.auth.user.ProfileImage);
   const name = useSelector((state) => state.auth.user.Name);
   const [showMenu, setShowMenu] = useState(false);
@@ -18,8 +19,7 @@ const UserMenu = () => {
     setShowMenu(false);
   };
 
-  const showMenuHandler = (e) => {
-    e.preventDefault();
+  const showMenuHandler = () => {
     setShowMenu(true);
   };
 
@@ -37,13 +37,13 @@ const UserMenu = () => {
   return (
     <div
       role="button"
-      onClick={showMenuHandler.bind(this)}
+      onClick={() => { showMenuHandler()}}
       className={styles.userMenu}
     >
       <div className={styles.profile}>
         <div className={styles.profileImage} />
         <p>
-          {isAuthenticated ? name : 'pai ausente'}
+          name
         </p>
       </div>
       {
@@ -84,11 +84,13 @@ const UserMenu = () => {
               icon={faSkiing}
               className={styles['dropdown-icon']}
             />
-            <p
+            <button
+              type="button"
+              onClick={() => { dispatch(logout({})); }}
               className={styles['dropdown-text']}
             >
               Sair
-            </p>
+            </button>
           </div>
         </div>
         )
@@ -97,4 +99,4 @@ const UserMenu = () => {
   );
 };
 
-export default UserMenu;
+export default UserAuthenticatedMenu;

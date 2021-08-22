@@ -101,10 +101,23 @@
             background: -webkit-linear-gradient($purple_vapor, $primary_pink_vapor);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
         }
     }
 
     .dropdown-item:hover {
         background-color: #ffffff;
     }
+
+    
+}
+
+.enter-container {
+    cursor: pointer !important;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    width: 80px;
 }
