@@ -3,11 +3,15 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faMeh, faNewspaper, faSkiing, faUser, faUserAstronaut,
+  faNewspaper, faSkiing, faUserAstronaut,
 } from '@fortawesome/free-solid-svg-icons';
+import { useSelector } from 'react-redux';
 import styles from './layout.module.scss';
 
 const UserMenu = () => {
+  const isAuthenticated = useSelector((state) => state.auth.authenticated);
+  const profileImage = useSelector((state) => state.auth.user.ProfileImage);
+  const name = useSelector((state) => state.auth.user.Name);
   const [showMenu, setShowMenu] = useState(false);
 
   const closeMenuHandler = () => {
@@ -38,7 +42,9 @@ const UserMenu = () => {
     >
       <div className={styles.profile}>
         <div className={styles.profileImage} />
-        <p>Goku</p>
+        <p>
+          {isAuthenticated ? name : 'pai ausente'}
+        </p>
       </div>
       {
         showMenu && (
