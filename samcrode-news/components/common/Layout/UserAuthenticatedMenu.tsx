@@ -11,7 +11,7 @@ import { logout } from '../../../store/auth/authSlice';
 
 const UserAuthenticatedMenu = () => {
   const dispatch = useDispatch();
-  const profileImage = useSelector((state) => state.auth.user.ProfileImage);
+  const profileImage = useSelector((state) => state.auth.user.ImageUrl);
   const name = useSelector((state) => state.auth.user.Name);
   const [showMenu, setShowMenu] = useState(false);
 
@@ -41,9 +41,11 @@ const UserAuthenticatedMenu = () => {
       className={styles.userMenu}
     >
       <div className={styles.profile}>
-        <div className={styles.profileImage} />
+        <div className={styles.profileImage}
+          style={{backgroundImage: `url(${profileImage})`}}
+        />
         <p>
-          name
+          {name}
         </p>
       </div>
       {
