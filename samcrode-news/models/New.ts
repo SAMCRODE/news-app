@@ -2,9 +2,9 @@ import { Row } from "./Row";
 import { User } from "./User";
 
 export interface New {
-    Id: number;
-    Name: string;
-    Description: string;
+    Id?: number;
+    Name?: string;
+    Description?: string;
     CategoryName?: string;
     ImageUrl?: string;
     BackgroundColor?: string;
@@ -12,5 +12,5 @@ export interface New {
     CreateDate?: Date;
     AuthorId?: number;
     Author?: User;
-    Rows: Row[];
+    Rows?: Row[];
 }

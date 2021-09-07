@@ -1,0 +1,62 @@
+@import '../../../../styles/common.scss';
+
+.container {
+    display: flex;
+    padding: 30px;
+    justify-content: center;
+
+    .forms {
+        background-color: rgba($color: $blue_vapor, $alpha: 0.6);
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 30px;
+        border-radius: 5px;
+        flex-wrap: wrap;
+
+        .formTextInputs {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            width: 80%;
+
+            @media screen {
+                
+            }
+        }
+
+        .btnContainer {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+
+            .btn {
+                @include btn();
+                align-self: center;
+                background: linear-gradient(#e66465, #6673ff);
+                border: none;
+                color: white;
+                align-self: center;
+                padding: 10px;
+
+                &:hover {
+                    background: rgba($purple_vapor, 0.5);
+                    color: white;
+                }
+            }
+        }
+
+        .imgContainer {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            width: auto;
+            background-color: $blue_vapor_dark;
+            border-radius: 10px;
+
+            span {
+                color: white;
+            }
+        }
+    }
+}
