@@ -23,27 +23,14 @@ export default function News({ post }: NewsProps) {
           description={(post || {}).Description}
         />
         <PostText
-          saverows={post.Rows}
+          saverows={post.Rows || []}
         />
       </div>
     </div>
   );
 }
 
-export async function getStaticPaths() {
-  return {
-    paths: [
-      { params: { id: '1' } },
-      { params: { id: '2' } },
-      { params: { id: '3' } },
-      { params: { id: '10' } },
-      { params: { id: '16' } },
-    ],
-    fallback: true || false,
-  };
-}
-
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const res = await makeRequest(requestFactory.getNewDetail(params.id));
 
   return { props: res };

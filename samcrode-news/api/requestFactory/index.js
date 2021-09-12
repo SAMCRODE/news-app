@@ -3,6 +3,7 @@ export {
   getPaginated,
   getHome,
   getNewDetail,
+  saveNews,
 } from './news';
 export {
   uploadFile,
