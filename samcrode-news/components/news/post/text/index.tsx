@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Row } from '../../../../models/Row';
 import RowAdd from './row/Add';
 import SwitchLayout from './row/SwitchLayout';
@@ -9,17 +9,29 @@ import styles from './text.module.scss';
 interface PostTextProps {
   edit: boolean;
   saverows: Row[];
+  onChange: any;
 }
 
-const PostText = ({ edit = true, saverows }: PostTextProps) => {
+const PostText = ({ edit = true, saverows, onChange }: PostTextProps) => {
   const [rows, setRows] = useState(saverows);
   const addRow = (row: Row) => {
-    setRows([...rows, row]);
+    onChange([...rows, row]);
   };
 
   const deleteRow = (row: Row) => {
-    setRows(rows.filter((obj) => obj.Id !== row.Id));
+    onChange(rows.filter((obj) => obj.Id !== row.Id))
   };
+
+  const onChangeRow = (row: Row) => {
+    const idx = rows.findIndex((crow: Row) => crow.Id === row.Id)
+
+    onChange([...rows.slice(0, idx), {...rows[idx], ...row}, ...rows.slice(idx + 1)])
+    // console.log([...rows.slice(0, idx), {...rows[idx], ...row}, ...rows.slice(idx + 1)])
+  }
+
+  useEffect(() => {
+    setRows(saverows);
+  }, [saverows]);
 
   return (
     <div className={styles.contentNew}>
@@ -37,7 +49,7 @@ const PostText = ({ edit = true, saverows }: PostTextProps) => {
               x
             </button>
             )}
-            <SwitchLayout {...row} />
+            <SwitchLayout {...row} onChange={onChangeRow} />
           </div>
         ))
       }

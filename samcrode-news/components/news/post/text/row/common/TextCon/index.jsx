@@ -6,7 +6,7 @@ import styles from './textCon.module.scss';
 
 // eslint-disable-next-line arrow-body-style
 const TextCon = ({
-  text = '', firstLetterCap = true, firstLetter = '', html,
+  text = '', firstLetterCap = true, firstLetter = '', html, onTextChange,
 }) => {
   const [edit, setEdit] = useState(false);
   const [ctext, setText] = useState(text);
@@ -14,6 +14,8 @@ const TextCon = ({
   const [cfirstLetter, setFirstLetter] = useState(firstLetter);
 
   const onChange = (value) => {
+    onTextChange(value);
+
     if (value.length > 0) {
       if (html) {
         setHtml(value);

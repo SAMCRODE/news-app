@@ -6,6 +6,7 @@ import {
   faNewspaper, faSkiing, faUserAstronaut,
 } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from 'react-redux';
+import Link from 'next/link';
 import styles from './layout.module.scss';
 import { logout } from '../../../store/auth/authSlice';
 
@@ -37,12 +38,13 @@ const UserAuthenticatedMenu = () => {
   return (
     <div
       role="button"
-      onClick={() => { showMenuHandler()}}
+      onClick={() => { showMenuHandler(); }}
       className={styles.userMenu}
     >
       <div className={styles.profile}>
-        <div className={styles.profileImage}
-          style={{backgroundImage: `url(${profileImage})`}}
+        <div
+          className={styles.profileImage}
+          style={{ backgroundImage: `url(${profileImage})` }}
         />
         <p>
           {name}
@@ -73,11 +75,13 @@ const UserAuthenticatedMenu = () => {
               icon={faNewspaper}
               className={styles['dropdown-icon']}
             />
-            <p
-              className={styles['dropdown-text']}
-            >
-              Nova notícia
-            </p>
+            <Link href="/admin/news/create">
+              <p
+                className={styles['dropdown-text']}
+              >
+                Nova notícia
+              </p>
+            </Link>
           </div>
           <div
             className={styles['dropdown-item']}
