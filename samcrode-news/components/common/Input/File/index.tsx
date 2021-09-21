@@ -1,21 +1,21 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import makeRequest from '../../../../api/axios';
 import * as requestFactory from '../../../../api/requestFactory';
 import { UploadApiEndpoint } from '../../../../config';
 import styles from './file.module.scss';
 
 interface FileInputProps {
+  src: string;
   onChange: any;
 }
 
-const FileInput = ({onChange}: FileInputProps) => {
+const FileInput = ({src, onChange}: FileInputProps) => {
   const inputFile = useRef(null);
   const [file, setFile] = useState('https://cdn.codechef.com/download/small-banner/SEPT21B/1630247193.png');
 
   const handleChange = (file: FileList) => {
     if (!file[0]) return;
 
-    console.log(file[0])
     // setValue(event.target.value);
     // onChange(event.target.value);
     // alert(config.UploadApiEndpoint);
@@ -27,9 +27,12 @@ const FileInput = ({onChange}: FileInputProps) => {
         if(onChange){
           onChange(response.url);
         }
-        setFile(response.url);
       });
   };
+
+  useEffect(() => {
+    setFile(src);
+  }, [src]);
 
   return (
     <div

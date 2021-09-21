@@ -10,6 +10,7 @@ const ImageCon = ({
   captionImage = 'caption this',
   onCaptionChange,
   onImageChange,
+  allowChange,
 }) => {
   const [edit, setEdit] = useState(false);
   const [cimage, setImage] = useState(image);
@@ -33,7 +34,7 @@ const ImageCon = ({
       aria-hidden="true"
     >
       {
-        edit ? (
+        (edit && allowChange) ? (
           <Editable
             setEdit={setEdit}
             image={cimage}

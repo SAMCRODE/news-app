@@ -49,7 +49,7 @@ const PostText = ({ edit = true, saverows, onChange }: PostTextProps) => {
               x
             </button>
             )}
-            <SwitchLayout {...row} onChange={onChangeRow} />
+            <SwitchLayout {...row} onChange={onChangeRow} edit={edit} />
           </div>
         ))
       }

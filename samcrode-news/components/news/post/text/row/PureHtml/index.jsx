@@ -5,12 +5,14 @@ import React from 'react';
 import TextCon from '../common/TextCon';
 
 const PureHtml = ({
-  Content,
+  Content, onChange, Id, edit,
 }) => {
   return (
     <>
       <TextCon
         html={Content}
+        onTextChange={(content) => onChange({ Id, Content: content })}
+        allowChange={edit}
       />
     </>
   );

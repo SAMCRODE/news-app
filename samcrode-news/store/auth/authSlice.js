@@ -22,6 +22,7 @@ const authSlice = createSlice({
         Email: action.payload.Email,
         ImageUrl: action.payload.ImageUrl,
         Name: action.payload.Name,
+        Permissions: action.payload.Permissions,
       };
 
       state.jwt = action.payload.Jwt;

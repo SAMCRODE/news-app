@@ -6,7 +6,7 @@ import styles from './textCon.module.scss';
 
 // eslint-disable-next-line arrow-body-style
 const TextCon = ({
-  text = '', firstLetterCap = true, firstLetter = '', html, onTextChange,
+  text = '', firstLetterCap = true, firstLetter = '', html, onTextChange, allowChange = true,
 }) => {
   const [edit, setEdit] = useState(false);
   const [ctext, setText] = useState(text);
@@ -29,6 +29,16 @@ const TextCon = ({
     }
   };
 
+  useEffect(() => {
+    if (text.length > 0) {
+      setText(text.split('').slice(1).join(''));
+      setFirstLetter(text[0]);
+    } else {
+      setText('');
+      setFirstLetter('');
+    }
+  }, [text]);
+
   return (
     <div
       onClick={() => { setEdit(true); }}
@@ -37,7 +47,7 @@ const TextCon = ({
       aria-hidden="true"
     >
       {
-        edit
+        (edit && allowChange)
           ? (
             <Editable
               text={ctext}
