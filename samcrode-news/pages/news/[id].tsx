@@ -23,12 +23,15 @@ export default function News({ post }: NewsProps) {
   const permissions = useSelector((state) => state.auth.user.Permissions);
   const [edit, setEdit] = useState<boolean>(false);
   const [cpost, setPost] = useState(post);
+
   const {save} = SaveNew((response: New) => {
-    console.log(response);
+    if(response){
+      setPost(response);
+    }
   });
 
   const editHeader = () => {
-    router.push(`/admin/news/edit/${post.Id}`)
+    router.push(`/admin/news/edit/${cpost.Id}`)
   }
 
   useEffect(() => {
@@ -41,10 +44,10 @@ export default function News({ post }: NewsProps) {
         <PostHeader
           onEdit={editHeader}
           edit={edit}
-          authorName={(post.Author as User).Name}
-          authorProfile={(post.Author as User).ImageUrl}
-          name={(post || {}).Name}
-          description={(post || {}).Description}
+          authorName={(cpost.Author as User).Name}
+          authorProfile={(cpost.Author as User).ImageUrl}
+          name={(cpost || {}).Name}
+          description={(cpost || {}).Description}
         />
         <PostText
           edit={edit}
