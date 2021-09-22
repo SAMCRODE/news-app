@@ -13,6 +13,7 @@ import { logout } from '../../../store/auth/authSlice';
 const UserAuthenticatedMenu = () => {
   const dispatch = useDispatch();
   const profileImage = useSelector((state) => state.auth.user.ImageUrl);
+  const permissions = useSelector((state) => state.auth.user.Permissions);
   const name = useSelector((state) => state.auth.user.Name);
   const [showMenu, setShowMenu] = useState(false);
 
@@ -55,34 +56,40 @@ const UserAuthenticatedMenu = () => {
         <div
           className={styles.dropdownMenu}
         >
-          <div
-            className={styles['dropdown-item']}
-          >
-            <FontAwesomeIcon
-              icon={faUserAstronaut}
-              className={styles['dropdown-icon']}
-            />
-            <p
-              className={styles['dropdown-text']}
-            >
-              Minha conta
-            </p>
-          </div>
-          <div
-            className={styles['dropdown-item']}
-          >
-            <FontAwesomeIcon
-              icon={faNewspaper}
-              className={styles['dropdown-icon']}
-            />
-            <Link href="/admin/news/create">
-              <p
-                className={styles['dropdown-text']}
-              >
-                Nova notícia
-              </p>
-            </Link>
-          </div>
+          {
+            permissions ? (
+              <>
+                <div
+                  className={styles['dropdown-item']}
+                >
+                  <FontAwesomeIcon
+                    icon={faUserAstronaut}
+                    className={styles['dropdown-icon']}
+                  />
+                  <p
+                    className={styles['dropdown-text']}
+                  >
+                    Minha conta
+                  </p>
+                </div>
+                <div
+                  className={styles['dropdown-item']}
+                >
+                  <FontAwesomeIcon
+                    icon={faNewspaper}
+                    className={styles['dropdown-icon']}
+                  />
+                  <Link href="/admin/news/create">
+                    <p
+                      className={styles['dropdown-text']}
+                    >
+                      Nova notícia
+                    </p>
+                  </Link>
+                </div>
+              </>
+            ) : <></>
+          }
           <div
             className={styles['dropdown-item']}
           >
