@@ -8,6 +8,9 @@ import styles from './imageCon.module.scss';
 const ImageCon = ({
   image = 'https://img1.migalhas.uol.com.br/gf_base/empresas/MIGA/imagens/17416E58717933B96B80FFA816DD8DFF719B_ratinho.jpg',
   captionImage = 'caption this',
+  onCaptionChange,
+  onImageChange,
+  allowChange,
 }) => {
   const [edit, setEdit] = useState(false);
   const [cimage, setImage] = useState(image);
@@ -15,10 +18,12 @@ const ImageCon = ({
 
   const onChange = (value) => {
     setImage(value);
+    onImageChange(value);
   };
 
   const onChangeCaption = (value) => {
     setCaption(value);
+    onCaptionChange(value);
   };
 
   return (
@@ -29,7 +34,7 @@ const ImageCon = ({
       aria-hidden="true"
     >
       {
-        edit ? (
+        (edit && allowChange) ? (
           <Editable
             setEdit={setEdit}
             image={cimage}

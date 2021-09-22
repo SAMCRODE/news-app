@@ -1,3 +1,5 @@
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import styles from './header.module.scss';
 
@@ -6,18 +8,24 @@ interface PostHeaderProps {
   description: string;
   authorName: string;
   authorProfile: string;
+  edit: boolean;
+  onEdit: any;
 }
 
 const PostHeader = ({
-  name, description, authorName, authorProfile,
+  name, description, authorName, authorProfile, edit=false, onEdit,
 }: PostHeaderProps) => {
-  const nClick = () => {
-    console.log('clicked');
-  };
 
   return (
     <div className={styles.metaSection}>
-      <h2 className={styles.title}>{name}</h2>
+      <h2 className={styles.title}>{name} 
+        {edit && (
+          <FontAwesomeIcon
+            onClick={() => {onEdit()}}
+            className={styles.editIcon} icon={faEdit}/>
+        )
+        }  
+      </h2>
       <h3 className={styles.description}>{description}</h3>
       <div className={styles.authorSection}>
         <div

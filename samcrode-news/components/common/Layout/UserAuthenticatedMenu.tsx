@@ -6,12 +6,14 @@ import {
   faNewspaper, faSkiing, faUserAstronaut,
 } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from 'react-redux';
+import Link from 'next/link';
 import styles from './layout.module.scss';
 import { logout } from '../../../store/auth/authSlice';
 
 const UserAuthenticatedMenu = () => {
   const dispatch = useDispatch();
-  const profileImage = useSelector((state) => state.auth.user.ProfileImage);
+  const profileImage = useSelector((state) => state.auth.user.ImageUrl);
+  const permissions = useSelector((state) => state.auth.user.Permissions);
   const name = useSelector((state) => state.auth.user.Name);
   const [showMenu, setShowMenu] = useState(false);
 
@@ -37,13 +39,16 @@ const UserAuthenticatedMenu = () => {
   return (
     <div
       role="button"
-      onClick={() => { showMenuHandler()}}
+      onClick={() => { showMenuHandler(); }}
       className={styles.userMenu}
     >
       <div className={styles.profile}>
-        <div className={styles.profileImage} />
+        <div
+          className={styles.profileImage}
+          style={{ backgroundImage: `url(${profileImage})` }}
+        />
         <p>
-          name
+          {name}
         </p>
       </div>
       {
@@ -51,32 +56,40 @@ const UserAuthenticatedMenu = () => {
         <div
           className={styles.dropdownMenu}
         >
-          <div
-            className={styles['dropdown-item']}
-          >
-            <FontAwesomeIcon
-              icon={faUserAstronaut}
-              className={styles['dropdown-icon']}
-            />
-            <p
-              className={styles['dropdown-text']}
-            >
-              Minha conta
-            </p>
-          </div>
-          <div
-            className={styles['dropdown-item']}
-          >
-            <FontAwesomeIcon
-              icon={faNewspaper}
-              className={styles['dropdown-icon']}
-            />
-            <p
-              className={styles['dropdown-text']}
-            >
-              Nova notícia
-            </p>
-          </div>
+          {
+            permissions ? (
+              <>
+                <div
+                  className={styles['dropdown-item']}
+                >
+                  <FontAwesomeIcon
+                    icon={faUserAstronaut}
+                    className={styles['dropdown-icon']}
+                  />
+                  <p
+                    className={styles['dropdown-text']}
+                  >
+                    Minha conta
+                  </p>
+                </div>
+                <div
+                  className={styles['dropdown-item']}
+                >
+                  <FontAwesomeIcon
+                    icon={faNewspaper}
+                    className={styles['dropdown-icon']}
+                  />
+                  <Link href="/admin/news/create">
+                    <p
+                      className={styles['dropdown-text']}
+                    >
+                      Nova notícia
+                    </p>
+                  </Link>
+                </div>
+              </>
+            ) : <></>
+          }
           <div
             className={styles['dropdown-item']}
           >

@@ -34,3 +34,9 @@ export const getNewDetail = (id) => ({
   method: 'get',
   url: `/news/detail/${id}`,
 });
+
+export const saveNews = (news) => ({
+  method: 'post',
+  url: '/news/create',
+  data: news,
+});
