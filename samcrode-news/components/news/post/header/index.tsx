@@ -10,10 +10,11 @@ interface PostHeaderProps {
   authorProfile: string;
   edit: boolean;
   onEdit: any;
+  date: string;
 }
 
 const PostHeader = ({
-  name, description, authorName, authorProfile, edit=false, onEdit,
+  name, description, authorName, authorProfile, edit=false, onEdit, date
 }: PostHeaderProps) => {
 
   return (
@@ -34,7 +35,7 @@ const PostHeader = ({
         />
         <div className={styles.nameAndData}>
           <span>{authorName}</span>
-          <span className={styles.data}>Em 12/12/2021 ás 14:39</span>
+          <span className={styles.data}>em {date}</span>
         </div>
       </div>
     </div>

@@ -41,7 +41,9 @@ const FormNew = ({setNews, save, news}: FormNewProps) => {
           placeholder="ex: Futebol"
         />
       </div>
-      <div className={styles.imgContainer}>
+      <div className={styles.imgContainer}
+        style={{backgroundColor: news.BackgroundColor}}
+      >
         <FileInput
           src={news.ImageUrl || ''}
           onChange={(src: string) => {
@@ -49,6 +51,10 @@ const FormNew = ({setNews, save, news}: FormNewProps) => {
           }}
         />
         <span>Imagem da notícia</span>
+        <input type="color" id="background-news"
+          value={news.BackgroundColor || '#000000'}
+          onChange={(event) => {setNews({...news, BackgroundColor: event.target.value})}}
+        />
       </div>
       <div className={styles.btnContainer}>
         <button
