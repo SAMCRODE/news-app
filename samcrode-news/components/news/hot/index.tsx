@@ -11,9 +11,9 @@ interface HotNewsProps {
 
 const HotNews = ({ news }: HotNewsProps) => {
   const router = useRouter();
-  const ulNew = news[0];
+  const ulNew = news[2];
   const rbNew = news[1];
-  const rcNew = news[2];
+  const rcNew = news[0];
 
   const navigateNews = (id: number) => {
     router.push(`/news/${id}`);
