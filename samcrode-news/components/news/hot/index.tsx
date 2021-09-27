@@ -11,9 +11,9 @@ interface HotNewsProps {
 
 const HotNews = ({ news }: HotNewsProps) => {
   const router = useRouter();
-  const ulNew = news[0];
+  const ulNew = news[2];
   const rbNew = news[1];
-  const rcNew = news[2];
+  const rcNew = news[0];
 
   const navigateNews = (id: number) => {
     router.push(`/news/${id}`);
@@ -24,40 +24,51 @@ const HotNews = ({ news }: HotNewsProps) => {
       <div className={styles.cardscontainer}>
         <div className={styles.cardleft}>
           <div className={styles.firstCard}>
-            <Card
-              onClick={() => { navigateNews(ulNew.Id as number); }}
-              category={ulNew.CategoryName}
-              title={ulNew.Name}
-              backgroundColor={ulNew.BackgroundColor}
-              margin={0}
-              image={ulNew.ImageUrl}
-            />
+            {
+              ulNew && (
+              <Card
+                onClick={() => { navigateNews(ulNew.Id as number); }}
+                category={ulNew.CategoryName}
+                title={ulNew.Name}
+                backgroundColor={ulNew.BackgroundColor}
+                margin={0}
+                image={ulNew.ImageUrl}
+              />
+              )
+            }
           </div>
           <div className={styles.secondCard}>
-            <Card
-              onClick={() => { navigateNews(rbNew.Id as number); }}
-              category={rbNew.CategoryName}
-              title={rbNew.Name}
-              backgroundColor={rbNew.BackgroundColor}
-              margin={0}
-              image={rbNew.ImageUrl}
-            />
+            {
+              rbNew && (
+              <Card
+                onClick={() => { navigateNews(rbNew.Id as number); }}
+                category={rbNew.CategoryName}
+                title={rbNew.Name}
+                backgroundColor={rbNew.BackgroundColor}
+                margin={0}
+                image={rbNew.ImageUrl}
+              />
+              )
+            }
           </div>
         </div>
         <div className={styles.cardright}>
-          <Card
-            onClick={() => { navigateNews(rcNew.Id as number); }}
-            category={rcNew.CategoryName}
-            title={rcNew.Name}
-            backgroundColor={rcNew.BackgroundColor}
-            image={rcNew.ImageUrl}
-          />
+          {
+            rcNew && (
+            <Card
+              onClick={() => { navigateNews(rcNew.Id as number); }}
+              category={rcNew.CategoryName}
+              title={rcNew.Name}
+              backgroundColor={rcNew.BackgroundColor}
+              image={rcNew.ImageUrl}
+            />)
+          }
         </div>
       </div>
       <div className={styles.cardscontainer}>
         <div className={styles.newsBellow}>
           {
-            news.slice(3).map((obj) => (
+            news.slice(3, 6).map((obj) => (
               <div
                 key={obj.Id}
                 className={styles.newsBellowItem}

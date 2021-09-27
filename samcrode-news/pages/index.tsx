@@ -25,12 +25,12 @@ export default function Home({ lastest, hot }: HomeProps) {
       <div className={styles.content}>
         <div className={styles.contentLeft}>
           <HotNews
-            news={hot}
+            news={hot || []}
           />
-          <FeedNews />
+          <FeedNews news={(hot || []).slice(6)}/>
         </div>
         <div className={styles.contentRight}>
-          <LastestNews news={lastest} />
+          <LastestNews news={(lastest || [])} />
         </div>
       </div>
     </div>

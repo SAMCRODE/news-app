@@ -48,6 +48,7 @@ export default function News({ post }: NewsProps) {
           authorProfile={(cpost.Author as User).ImageUrl}
           name={(cpost || {}).Name}
           description={(cpost || {}).Description}
+          date={new Date(cpost.CreateDate).toLocaleDateString()}
         />
         <PostText
           edit={edit}
