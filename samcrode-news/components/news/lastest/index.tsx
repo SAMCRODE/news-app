@@ -15,7 +15,7 @@ const LastestNews = ({ news }: LastestNewsProps) => (
       (news || []).map((obj, i) => (
         <ItemRow
           number={(i + 1).toString()}
-          title={obj.Name}
+          title={obj.Name || ''}
           key={obj.Id}
         />
       ))

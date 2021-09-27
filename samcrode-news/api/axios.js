@@ -1,8 +1,9 @@
 /* eslint-disable no-invalid-this */
 /* eslint-disable max-len */
 import axios from 'axios';
+import { ApiBaseUrl } from '../config';
 
-const baseURL = 'http://0.0.0.0:8080';
+const baseURL = ApiBaseUrl;
 
 const handleApiErrors = () => ({});
 

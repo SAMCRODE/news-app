@@ -9,12 +9,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import Link from 'next/link';
 import styles from './layout.module.scss';
 import { logout } from '../../../store/auth/authSlice';
+import { RootState } from '../../../store';
 
 const UserAuthenticatedMenu = () => {
   const dispatch = useDispatch();
-  const profileImage = useSelector((state) => state.auth.user.ImageUrl);
-  const permissions = useSelector((state) => state.auth.user.Permissions);
-  const name = useSelector((state) => state.auth.user.Name);
+  const profileImage = useSelector((state: RootState) => state.auth.user.ImageUrl);
+  const permissions = useSelector((state: RootState) => state.auth.user.Permissions);
+  const name = useSelector((state: RootState) => state.auth.user.Name);
   const [showMenu, setShowMenu] = useState(false);
 
   const closeMenuHandler = () => {

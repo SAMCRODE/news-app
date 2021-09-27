@@ -10,7 +10,7 @@ interface FileInputProps {
 }
 
 const FileInput = ({src, onChange}: FileInputProps) => {
-  const inputFile = useRef(null);
+  const inputFile = useRef<HTMLInputElement>(null);
   const [file, setFile] = useState('https://cdn.codechef.com/download/small-banner/SEPT21B/1630247193.png');
 
   const handleChange = (file: FileList) => {
@@ -39,7 +39,7 @@ const FileInput = ({src, onChange}: FileInputProps) => {
         className={styles.container}
         style={{backgroundImage: `url(${file})`}}
         onClick={() => {
-          if(inputFile !== null){
+          if(inputFile !== null && inputFile.current !== null){
             inputFile.current.click();
           }
         }}
