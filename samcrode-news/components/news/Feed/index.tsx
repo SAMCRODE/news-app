@@ -15,7 +15,7 @@ const FeedNews = ({news}: FeedNewsProps) => (
           title={obj.Name}
           categoryLabel={obj.CategoryName}
           description={obj.Description}
-          time={new Date(obj.CreateDate as string).toLocaleDateString()}
+          time={new Date(obj.CreateDate as unknown as string).toLocaleDateString()}
           image={obj.ImageUrl}
           key={obj.Id}
         />

@@ -1,6 +1,6 @@
-import FileInput from "../../../../components/common/Input/File";
-import TextInput from "../../../../components/common/Input/Text"
-import { New } from "../../../../models/New";
+import FileInput from "../../common/Input/File";
+import TextInput from "../../common/Input/Text"
+import { New } from "../../../models/New";
 import styles from './common.module.scss';
 
 interface FormNewProps {
@@ -21,6 +21,7 @@ const FormNew = ({setNews, save, news}: FormNewProps) => {
           }}
           label="Título"
           placeholder="ex: Messi joga muito e Vila Nova goleia"
+          invalidMsg=''
         />
         <TextInput
           value={news.Description || ''}
@@ -30,6 +31,7 @@ const FormNew = ({setNews, save, news}: FormNewProps) => {
           paddingTop={30}
           label="Sub Título"
           placeholder="ex: Com dois gols do atacante, o time agora assume a liderança do brasileirão"
+          invalidMsg=''
         />
         <TextInput
           value={news.CategoryName || ''}
@@ -39,6 +41,7 @@ const FormNew = ({setNews, save, news}: FormNewProps) => {
           paddingTop={30}
           label="Categoria"
           placeholder="ex: Futebol"
+          invalidMsg=''
         />
       </div>
       <div className={styles.imgContainer}

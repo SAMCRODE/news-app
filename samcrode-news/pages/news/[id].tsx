@@ -13,6 +13,7 @@ import { faSave } from '@fortawesome/free-solid-svg-icons';
 import SaveNew from '../../functions/news/save';
 import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
+import { RootState } from '../../store';
 
 interface NewsProps {
   post: New;
@@ -20,7 +21,7 @@ interface NewsProps {
 
 export default function News({ post }: NewsProps) {
   const router = useRouter();
-  const permissions = useSelector((state) => state.auth.user.Permissions);
+  const permissions = useSelector((state: RootState) => state.auth.user.Permissions);
   const [edit, setEdit] = useState<boolean>(false);
   const [cpost, setPost] = useState(post);
 
@@ -44,11 +45,11 @@ export default function News({ post }: NewsProps) {
         <PostHeader
           onEdit={editHeader}
           edit={edit}
-          authorName={(cpost.Author as User).Name}
-          authorProfile={(cpost.Author as User).ImageUrl}
-          name={(cpost || {}).Name}
-          description={(cpost || {}).Description}
-          date={new Date(cpost.CreateDate).toLocaleDateString()}
+          authorName={(cpost.Author as User).Name || ''}
+          authorProfile={(cpost.Author as User).ImageUrl || ''}
+          name={(cpost || {}).Name || ''}
+          description={(cpost || {}).Description || ''}
+          date={new Date(cpost.CreateDate as unknown as string).toLocaleDateString()}
         />
         <PostText
           edit={edit}
@@ -75,7 +76,11 @@ export default function News({ post }: NewsProps) {
   );
 }
 
-export async function getServerSideProps({ params }) {
+interface ServerSideProps {
+  params: any;
+}
+
+export async function getServerSideProps({ params }: ServerSideProps) {
   const res = await makeRequest(requestFactory.getNewDetail(params.id));
 
   return { props: res };

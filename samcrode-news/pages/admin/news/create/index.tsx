@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import SaveNew from '../../../../functions/news/save';
 import { New } from '../../../../models/New';
-import FormNew from '../common/Form';
+import FormNew from '../../../../components/admin/common/Form';
 
 const NewsCreate = () => {
   const router = useRouter();
