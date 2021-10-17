@@ -14,6 +14,7 @@ import SaveNew from '../../functions/news/save';
 import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import { RootState } from '../../store';
+import Head from 'next/head';
 
 interface NewsProps {
   post: New;
@@ -41,6 +42,10 @@ export default function News({ post }: NewsProps) {
 
   return (
     <div className={styles.container}>
+      <Head>
+        <title>samcrode - {cpost.Name}</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <div className={styles.newsContent}>
         <PostHeader
           onEdit={editHeader}
