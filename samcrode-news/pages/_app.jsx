@@ -1,3 +1,5 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable react/jsx-props-no-spreading */
