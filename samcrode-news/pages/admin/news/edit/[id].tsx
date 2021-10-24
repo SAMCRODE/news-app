@@ -12,17 +12,17 @@ const NewsEdit = () => {
   });
   const newsId = router.query.id;
 
-  const {save} = SaveNew((response: New) => {
-    router.push(`/news/${response.Id}`)
+  const { save } = SaveNew((response: New) => {
+    router.push(`/news/${response.Id}`);
   });
 
   useEffect(() => {
-    if(newsId){
+    if (newsId) {
       makeRequest(requestFactory.getNewDetail(newsId)).then((response) => {
-        if(response){
+        if (response) {
           setNews(response.post);
         }
-      })
+      });
     }
   }, [newsId]);
 

@@ -9,7 +9,7 @@ const Footer = () => (
     <ClickableLogo />
     <div className={styles.innerContainer}>
       <Link href="/">
-        <a>SAMCRODE</a>
+        Samcrode
       </Link>
       <UserMenu />
     </div>

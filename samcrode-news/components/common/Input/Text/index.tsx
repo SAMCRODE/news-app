@@ -3,7 +3,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import styles from './text.module.scss';
-import PropTypes from 'prop-types';
 
 interface TextInputProps {
   value: string;

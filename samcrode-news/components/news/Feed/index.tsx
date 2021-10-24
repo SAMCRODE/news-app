@@ -7,7 +7,7 @@ interface FeedNewsProps {
   news: New[]
 }
 
-const FeedNews = ({news}: FeedNewsProps) => (
+const FeedNews = ({ news }: FeedNewsProps) => (
   <div className={styles.containerFeed}>
     {
       news.map((obj) => (
