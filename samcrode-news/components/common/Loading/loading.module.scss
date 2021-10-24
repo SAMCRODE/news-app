@@ -1,0 +1,30 @@
+.container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 1000;
+
+    .spinnerContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // background-image: url('https://w7.pngwing.com/pngs/289/934/png-transparent-fox-racing-logo-fox-racing-decal-sticker-clothing-motocross-fox-miscellaneous-logo-monochrome-thumbnail.png');
+        // background-size: cover;
+        // background-position: center;
+
+        .spinner {
+            display: block;
+            width: 5rem;
+            height: 5rem;
+            border: 0.3rem solid #e9e9e9;
+            border-top: 0.3rem solid #7c7c7c;
+            border-radius: 50%;
+        }
+
+        .logo {
+            background-color: yellowgreen;
+            left: 49.2%;
+            top: 47%;
+        }
+    }
+}
