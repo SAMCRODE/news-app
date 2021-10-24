@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import React, { FormEvent, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useRouter } from 'next/router';
 import TextInput from '../../components/common/Input/Text';
 import styles from './login.module.scss';
 import * as requestFactory from '../../api/requestFactory';
 import makeRequest from '../../api/axios';
-import {User} from '../../models/User';
-import { useDispatch } from 'react-redux';
+import { User } from '../../models/User';
 import { setAuth } from '../../store/auth/authSlice';
-import { useRouter } from 'next/router';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -36,12 +36,12 @@ const LoginForm = () => {
   const authUser = (e: FormEvent) => {
     e.preventDefault();
 
-    const us: User = {Email: email.value, Password: password.value};
+    const us: User = { Email: email.value, Password: password.value };
 
     makeRequest(requestFactory.auth(us))
       .then((response) => {
         if (response) {
-          dispatch(setAuth(response))
+          dispatch(setAuth(response));
           router.push('/');
         }
       });
@@ -50,7 +50,8 @@ const LoginForm = () => {
   return (
     <form
       onSubmit={authUser}
-      className={styles.formContainer}>
+      className={styles.formContainer}
+    >
       <div className={styles.loginHeader}>
         <h1>Entrar</h1>
       </div>

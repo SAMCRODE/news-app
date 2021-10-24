@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 /* eslint-disable react/no-danger */
 /* eslint-disable no-undef */
 /* eslint-disable react/prop-types */

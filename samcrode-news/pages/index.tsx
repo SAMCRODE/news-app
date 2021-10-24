@@ -27,7 +27,7 @@ export default function Home({ lastest, hot }: HomeProps) {
           <HotNews
             news={hot || []}
           />
-          <FeedNews news={(hot || []).slice(6)}/>
+          <FeedNews news={(hot || []).slice(6)} />
         </div>
         <div className={styles.contentRight}>
           <LastestNews news={(lastest || [])} />
@@ -37,11 +37,11 @@ export default function Home({ lastest, hot }: HomeProps) {
   );
 }
 
-export async function getStaticProps(context: any) {
+export async function getStaticProps() {
   const res = await makeRequest(requestFactory.getHome());
 
   return {
     props: res, // will be passed to the page component as props
-    revalidate: 60 * 20
+    revalidate: 60 * 20,
   };
 }

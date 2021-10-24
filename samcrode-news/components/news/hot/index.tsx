@@ -61,7 +61,8 @@ const HotNews = ({ news }: HotNewsProps) => {
               title={rcNew.Name}
               backgroundColor={rcNew.BackgroundColor}
               image={rcNew.ImageUrl}
-            />)
+            />
+            )
           }
         </div>
       </div>

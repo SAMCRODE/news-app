@@ -8,8 +8,8 @@ const NewsCreate = () => {
   const router = useRouter();
   const [news, setNews] = useState<New>({
   });
-  const {save} = SaveNew((response: New) => {
-    router.push(`/news/${response.Id}`)
+  const { save } = SaveNew((response: New) => {
+    router.push(`/news/${response.Id}`);
   });
 
   return (

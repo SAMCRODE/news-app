@@ -1,3 +1,5 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useEffect, useState } from 'react';
@@ -19,15 +21,15 @@ const PostText = ({ edit = true, saverows, onChange }: PostTextProps) => {
   };
 
   const deleteRow = (row: Row) => {
-    onChange(rows.filter((obj) => obj.Id !== row.Id))
+    onChange(rows.filter((obj) => obj.Id !== row.Id));
   };
 
   const onChangeRow = (row: Row) => {
-    const idx = rows.findIndex((crow: Row) => crow.Id === row.Id)
+    const idx = rows.findIndex((crow: Row) => crow.Id === row.Id);
 
-    onChange([...rows.slice(0, idx), {...rows[idx], ...row}, ...rows.slice(idx + 1)])
+    onChange([...rows.slice(0, idx), { ...rows[idx], ...row }, ...rows.slice(idx + 1)]);
     // console.log([...rows.slice(0, idx), {...rows[idx], ...row}, ...rows.slice(idx + 1)])
-  }
+  };
 
   useEffect(() => {
     setRows(saverows);

@@ -6,12 +6,15 @@
     justify-content: center;
     align-items: center;
     .title {
+        display: flex;
         color: white !important;
         margin-bottom: 0px;
         font-size: 40px;
 
         .editIcon {
             cursor: pointer;
+            color: #9382f5;
+            width: 30px;
         }
     }
     .description {
