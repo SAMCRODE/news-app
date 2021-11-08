@@ -37,11 +37,10 @@ export default function Home({ lastest, hot }: HomeProps) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const res = await makeRequest(requestFactory.getHome());
 
   return {
     props: res, // will be passed to the page component as props
-    revalidate: 60 * 20,
   };
 }
